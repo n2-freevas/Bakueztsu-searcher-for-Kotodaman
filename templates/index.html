@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="{{url_for('static', filename='img/favicon.ico')}}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爆絶強力コトダマン辞書データベース</title>
+    <link rel = "stylesheet" href = "https://unpkg.com/ress/dist/ress.min.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/89e57c9a66.js" crossorigin="anonymous"></script>
+    <script src="{{url_for('static', filename='loading.js')}}"></script>
+    <script src="{{url_for('static', filename='showpage.js')}}"></script>
+    <link rel = "stylesheet" href = "{{url_for('static', filename='style.css')}}">
+    <link rel = "stylesheet" href = "{{url_for('static', filename='loading.css')}}">
+    <link rel = "stylesheet" href = "{{url_for('static', filename='showpage.css')}}">
+    <link rel = "stylesheet" href = "{{url_for('static', filename='result_popup.css')}}">
+    <mata name = "viewport" content = "width = device-width, initial-scale = 1"></mata>
+</head>
+<body>
+    <div id='loader'>
+        <div class="sk-folding-cube">
+            <div class="sk-cube1 sk-cube"></div>
+            <div class="sk-cube2 sk-cube"></div>
+            <div class="sk-cube4 sk-cube"></div>
+            <div class="sk-cube3 sk-cube"></div>
+        </div>
+        <p>Loading ...</p>
+    </div>
+
+    <header>
+        <div class = "con">
+            <div class = "headA">
+                <p>爆絶強力コトダマン辞書データベース</p>
+                <button type = "button" class = "headC">
+                    <span class = "fa fa-bars" title = "MENU"></span>
+                </button>
+            </div>
+        </div>
+        <nav class = "headB">
+            <ul>
+                <li><a onclick='HowToUseShow()'>使いかた</a></li>
+                <li><a onclick='FundingPageShow()'>募金して！</a></li>
+                <li><a href = "https://kotodaman.jp/">公式サイト</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div id = 'howtouse'>
+        <h2>How to Use</h2>
+        <p>このアプリは盤面からの文字検索に特化したコトダマン攻略アプリです。</p>
+        <p>下のかな表の文字を上の盤面にドラッグアンドドロップすることができます。</p>
+        <p>濁点や半濁点、小文字を盤面に入れたい場合は、文字をドラッグする前にクリック(スマホの場合はタップ)をしてみましょう。</p>
+        <p>盤面にはゲームアプリ通り3文字のみ入れることができます。</p>
+        <p>3文字入れ終わったら「検索する」のボタンを押しましょう。検索結果がポップアップ表示となって出できます。</p>
+        <p>ポップアップを閉じたいときは右上の×ボタンを押すかポップアップ画面外を押してください。</p>
+        <p>もしも文字を入れ間違えてしまった時は「リセット」ボタンを押しましょう。盤面の文字が一掃されます。</p>
+        <p>パソコンでこのサイトを使用している方は、すでに文字が入っている盤面に文字を置くことで上書きできます</p>
+        <p>このサイトはまだ開発段階ですので順次便利な機能を追加していく予定です。何卒よろしくお願いします！！</p>
+    </div>
+    <div id = 'funding'>
+
+        
+        <div style='background: rgba(105, 130, 87, 0.77);'>
+            <i class="fas fa-cat" style='font-size:60px;margin:20px 0 10px 0;'></i>
+            <p>サイトのさらなる多機能化のため<br>出資してください！</p>
+        </div>
+        <!--
+        <div class='onethreebox'>
+            <div class='left'>
+                <label><input type="checkbox" name="check1" value="1000" > 1000円</label>
+                <label><input type="checkbox" name="check2" value="5000" checked> 5000円</label>
+                <label><input type="checkbox" name="check3" value="9000" > 9000円</label>
+            </div>
+            <div class='right'>
+                <p>出資額を選択してください！</p>
+            </div>
+        </div>
+
+        <div class='fund-arrow'><i class="fas fa-arrow-circle-down"></i></div>
+        <div id='fundpage' class='onethreebox'></div>
+        <p>クレジットカードの情報を入力してください！</p>
+        <script>
+            const payjp = Payjp("{{public_key}}");
+            PayjpElementSet(payjp);
+        </script>
+        <div class='fund-arrow'><i class="fas fa-arrow-circle-down"></i></div>
+        -->
+        <div class='onethreebox'>
+            <div class='left'>
+            <form action='/pay' method='post'>
+            <p>¥1000</p>
+            
+            <script type="text/javascript"
+                src="https://checkout.pay.jp"
+                class="payjp-button"
+                data-key="{{ public_key }}"
+                data-submit-text='爆絶強力なサイトに出資する！'>
+            </script>
+            </form>
+            </div>
+            <div class='right'>
+                <i class="fab fa-cc-mastercard" style='font-size:50px;'></i>
+                <h6>※支払いは，Pay.jpを介して行われ，支払者様の個人情報は守られます．</h6>
+            </div>
+        </div>
+        <a href='http://n2-freevas-blog.deca.jp/2020/06/09/%E7%88%86%E7%B5%B6%E3%82%B5%E3%83%BC%E3%83%81%E3%83%A3%E3%83%BC%E3%81%A7%E3%81%AE%E5%AF%84%E4%BB%98%E3%81%AB%E9%96%A2%E3%81%99%E3%82%8B%E7%89%B9%E5%AE%9A%E7%9C%81%E5%8F%96%E5%BC%95%E6%B3%95%E3%81%AB/'><p>通信決済による募金に生ずる特定商取引法に関する表記</p></a>
+    </div>
+
+    <div id = "mainsys">
+        <div id = "search">
+            <div class='sevenwords-wrap'>
+                <div class = "frame">
+                    <img src = "{{url_for('static', filename='img/banmenframe.svg')}}" alt = "">
+                </div>
+                <div id = "sevenwords">
+                    <div class = "banmen empty banmen1"></div>
+                    <div class = "banmen empty banmen2"></div>
+                    <div class = "banmen empty banmen3"></div>
+                    <div class = "banmen empty banmen4"></div>
+                    <div class = "banmen empty banmen5"></div>
+                    <div class = "banmen empty banmen6"></div>
+                    <div class = "banmen empty banmen7"></div>
+                </div>
+                
+                <div class = "frame scalereverse">
+                        <img src = "{{url_for('static', filename='img/banmenframe.svg')}}" alt = "">
+                </div>
+            </div>
+            <div id = "subsys">
+                <section id="UI_buttons">
+                    <input type = "image" id = "resetbutton" src = "{{url_for('static', filename='img/reset_button.svg')}}" alt = "<読み込み失敗>リセットボタン">
+                    <input type = "image" id = "searchbutton" src = "{{url_for('static', filename='img/search_button.svg')}}" alt = "<読み込み失敗>検索するボタン">
+                </section>
+                <div id = "priority_words_wrap">
+                    <div class = "empty priority_word"></div>
+                    <div class = "empty priority_word"></div>
+                </div>
+            </div>
+            
+            <div id = "nihongolist">
+                <div class = "dan" class = "a_gyou">
+                    <div class = "fifty" draggable = "true"><image class = "word changable small" src = "static/img/0.svg" alt = "あ"></image></div>
+                    <div class = "fifty" draggable = "true"><image class = "word changable small" src = "static/img/1.svg" alt = "い"></image></div>
+                    <div class = "fifty" draggable = "true"><image class = "word changable small" src = "static/img/2.svg" alt = "う"></image></div>
+                    <div class = "fifty" draggable = "true"><image class = "word changable small" src = "static/img/3.svg" alt = "え"></image></div>
+                    <div class = "fifty" draggable = "true"><image class = "word changable small" src = "static/img/4.svg" alt = "お"></image></div>
+                </div>
+                <div class = "dan" class = "k_gyou">
+                    <div class = "fifty" draggable = "true"><image class = "word changable dakuten" src = "static/img/5.svg" alt = "か"></image></div>
+                    <div class = "fifty" draggable = "true"><image class = "word changable dakuten" src = "static/img/6.svg" alt = "き"></image></div>
+                    <div class = "fifty" draggable = "true"><image class = "word changable dakuten" src = "static/img/7.svg" alt = "く"></image></div>
+                    <div class = "fifty" draggable = "true"><image class = "word changable dakuten" src = "static/img/8.svg" alt = "け"></image></div>
+                    <div class = "fifty" draggable = "true"><image class = "word changable dakuten" src = "static/img/9.svg" alt = "こ"></image></div>
+                </div>
+                <div class = "dan" class = "s_gyou">
+                    <div class = "fifty" draggable = "true"><image class = "word changable dakuten" src = "static/img/10.svg" alt = "さ"></image></div>
+                    <div class = "fifty" draggable = "true"><image class = "word changable dakuten" src = "static/img/11.svg" alt = "し"></image></div>
+                    <div class = "fifty" draggable = "true"><image class = "word changable dakuten" src = "static/img/12.svg" alt = "す"></image></div>
+                    <div class = "fifty" draggable = "true"><image class = "word changable dakuten" src = "static/img/13.svg" alt = "せ"></image></div>
+                    <div class = "fifty" draggable = "true"><image class = "word changable dakuten" src = "static/img/14.svg" alt = "そ"></image></div>
+                </div>
+                <div class = "dan" class = "t_gyou">
+                    <div class = "fifty" draggable = "true"><image class = "word changable dakuten" src = "static/img/15.svg" alt = "た"></image></div>
+                    <div class = "fifty" draggable = "true"><image class = "word changable dakuten" src = "static/img/16.svg" alt = "ち"></image></div>
+                    <div class = "fifty" draggable = "true"><image class = "word changable handakuten" src = "static/img/17.svg" alt = "つ"></image></div>
+                    <div class = "fifty" draggable = "true"><image class = "word changable dakuten" src = "static/img/18.svg" alt = "て"></image></div>
+                    <div class = "fifty" draggable = "true"><image class = "word changable dakuten" src = "static/img/19.svg" alt = "と"></image></div>
+                </div>
+                <div class = "dan" class = "n_gyou">
+                    <div class = "fifty" draggable = "true"><image class = "word" src = "static/img/20.svg" alt = "な"></image></div>
+                    <div class = "fifty" draggable = "true"><image class = "word" src = "static/img/21.svg" alt = "に"></image></div>
+                    <div class = "fifty" draggable = "true"><image class = "word" src = "static/img/22.svg" alt = "ぬ"></image></div>
+                    <div class = "fifty" draggable = "true"><image class = "word" src = "static/img/23.svg" alt = "ね"></image></div>
+                    <div class = "fifty" draggable = "true"><image class = "word" src = "static/img/24.svg" alt = "の"></image></div>
+                </div>
+                <div class = "dan" class = "h_gyou">
+                    <div class = "fifty" draggable = "true"><image class = "word changable handakuten" src = "static/img/25.svg" alt = "は"></image></div>
+                    <div class = "fifty" draggable = "true"><image class = "word changable handakuten" src = "static/img/26.svg" alt = "ひ"></image></div>
+                    <div class = "fifty" draggable = "true"><image class = "word changable handakuten" src = "static/img/27.svg" alt = "ふ"></image></div>
+                    <div class = "fifty" draggable = "true"><image class = "word changable handakuten" src = "static/img/28.svg" alt = "へ"></image></div>
+                    <div class = "fifty" draggable = "true"><image class = "word changable handakuten" src = "static/img/29.svg" alt = "ほ"></image></div>
+                </div>
+                <div class = "dan" class = "m_gyou">
+                    <div class = "fifty" draggable = "true"><image class = "word" src = "static/img/30.svg" alt = "ま"></image></div>
+                    <div class = "fifty" draggable = "true"><image class = "word" src = "static/img/31.svg" alt = "み"></image></div>
+                    <div class = "fifty" draggable = "true"><image class = "word" src = "static/img/32.svg" alt = "む"></image></div>
+                    <div class = "fifty" draggable = "true"><image class = "word" src = "static/img/33.svg" alt = "め"></image></div>
+                    <div class = "fifty" draggable = "true"><image class = "word" src = "static/img/34.svg" alt = "も"></image></div>
+                </div>
+                <div class = "dan"  class = "y_gyou">
+                    <div class = "fifty" draggable = "true"><image class = "word changable small" src = "static/img/35.svg" alt = "や"></image></div>
+                    <div class = "fifty" draggable = "true"><image class = "word changable small" src = "static/img/36.svg" alt = "ゆ"></image></div>
+                    <div class = "fifty" draggable = "true"><image class = "word changable small" src = "static/img/37.svg" alt = "よ"></image></div>
+                </div>
+                <div class = "dan" class = "r_gyou">
+                    <div class = "fifty" draggable = "true"><image class = "word" src = "static/img/38.svg" alt = "ら"></image></div>
+                    <div class = "fifty" draggable = "true"><image class = "word" src = "static/img/39.svg" alt = "り"></image></div>
+                    <div class = "fifty" draggable = "true"><image class = "word" src = "static/img/40.svg" alt = "る"></image></div>
+                    <div class = "fifty" draggable = "true"><image class = "word" src = "static/img/41.svg" alt = "れ"></image></div>
+                    <div class = "fifty" draggable = "true"><image class = "word" src = "static/img/42.svg" alt = "ろ"></image></div>
+                </div>
+                <div class = "dan" class = "w_gyou">
+                    <div class = "fifty" draggable = "true"><image class = "word" src = "static/img/43.svg" alt = "わ"></image></div>
+                    <div class = "fifty" draggable = "true"><image class = "word" src = "static/img/44.svg" alt = "ん"></image></div>
+                    <div class = "fifty" draggable = "false"><image class = "word" src = "static/img/leaf.svg"></image></div>
+                </div>
+            </div>
+        </div>
+        <div id = "result"></div>
+    </div>
+    <div id ='credits'>
+        <div class='flexbox'>
+            <div class='imgbox'><a href='https://n2-freevas.com'><image src="static/img/n2_logo.svg"></a></div>
+            <div class='textbox'><p>This application maked by N2 FreeVAS<br>Show my official pages and join us.</p></div>
+        </div>
+    </div>
+
+    <script src = "{{url_for('static', filename='script.js')}}"></script>
+    <script src = "{{url_for('static', filename='result.js')}}"></script>
+    
+</body>
+</html>

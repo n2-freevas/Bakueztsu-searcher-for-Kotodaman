@@ -1,0 +1,73 @@
+#howtouse{
+    color: white;
+    background: darkolivegreen;
+    display:none;
+    transition: 0.8s;
+}
+
+#funding{
+    color:white;
+    background: rgba(29, 70, 0, 0.77);
+    transition: 0.8s;
+    text-align: center;
+    display:none;
+    width:100%;
+}
+#funding p{
+    margin: 5px 0 5px 0;
+    font-size:13px;
+    font-weight: bold;
+}
+.onethreebox{
+    max-width: 500px;
+    margin:auto;
+    padding: 0 20px 0 20px;
+    display: flex;
+    align-items: center;
+}
+.left{
+    flex-basis:50%;
+}
+.right{
+    flex-basis:50%;
+}
+.fund-arrow{
+    font-size: 25px;
+}
+
+.onethreebox h6{
+    font-size:8px;
+    margin-top:5px;
+    font-weight: normal;
+}
+.onethreebox label{
+    display: block;
+}
+#fund-button{
+    margin:5px 0 5px 0;
+}
+button{
+    padding:10px 20px 10px 20px;
+    color:white;
+    background:rgb(63, 150, 0);
+    border-radius: 5px;
+}
+
+#fundthanks{
+    position: fixed;
+    top:40;
+    left:0;
+    text-align: center;
+    background:rgb(63, 150, 0);
+    color:white;
+}
+
+@media screen and (max-width:400px){
+    .onethreebox p{
+        font-size:10x;
+    }
+    .onethreebox h6{
+        font-size:10px;
+        
+    }
+}

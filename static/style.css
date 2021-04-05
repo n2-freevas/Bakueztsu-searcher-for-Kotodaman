@@ -1,0 +1,374 @@
+@charset "UTF-8";
+html{
+    font-size: 100%;
+}
+
+header{
+    background-color: rgb(24, 13, 0);
+    color:white;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.headA{
+    display: block;
+    width: 100%;
+}
+
+.headA p{
+    margin-left: 10px;
+}
+
+.headB ul{
+    list-style: none;
+}
+
+.headB ul li{
+    width: 160px;
+}
+
+.headB a{
+    display: block;
+    text-decoration: none;
+    padding: 10px;
+    font-size: 15px;
+    color: inherit;
+    transition: 0.5s;
+}
+
+.headB a:hover{
+    color:rgb(234, 175, 0);
+    background-color: rgb(79, 128, 50);
+}
+
+.headA .headC{
+    height: 100%;
+}
+
+
+body{
+    font-family: "Yu Gothic Medium", "游ゴシック Medium", YuGothic, "游ゴシック体", "ヒラギノ角ゴ Pro W3", sans-serif;
+    line-height: 1.7;
+    color: #432;
+
+    background-image: url(img/ktdmnbg.jpg);
+    background-attachment: fixed;
+    
+    width: 100vw;
+    height: 100vh;
+    --var_max_width:800px;
+}
+
+input:focus{
+    outline: 0;
+}
+
+
+#mainsys{
+    margin: 30px 30px 30px 30px;
+}
+
+#mainsys #search{
+    height: 100%;
+}
+
+.sevenwords-wrap{
+    display: flex;
+    max-width: var(--var_max_width);
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+}
+.frame, .frame img{
+    height:120px;
+}
+
+.frame.scalereverse{
+    transform:scale(-1, 1);
+}
+#mainsys #search #sevenwords{
+    background-color: rgba(219, 195, 171, 0.7);
+    border-radius: 30px;
+    height: 100px;
+    width: 100%;
+    max-width: var(--var_max_width);
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+#mainsys #search #sevenwords .banmen{
+    background-color: rgba(0,0,0,0.5);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+
+#subsys{
+    width: 100%;
+    height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: var(--var_max_width);
+    display: flex;
+}
+#UI_buttons{
+    width: 100%;
+    max-width: var(--var_max_width);
+    margin-left: auto;
+    margin-right: auto;;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+#resetbutton, #searchbutton{
+    width: 220px;
+}
+
+#priority_words_wrap{
+    width: 180px;
+    background-color: rgba(255, 186, 67, 0.633);
+    border: solid 3px rgba(86, 181, 30, 0.5);
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 10px 10px 10px 0;
+    
+}
+#subsys #priority_words_wrap .empty{
+    background-color: rgba(0,0,0,0.5);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+#mainsys #nihongolist{
+    background-color:rgb(92, 46, 12);
+    width: 100%;
+    max-width:var(--var_max_width);
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px 10px 20px 10px;
+    height: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+
+    border: solid;
+    border: 4px solid;
+    border-color: rgb(206, 201, 134);
+    border-radius: 30px;
+}
+
+
+#mainsys #nihongolist .dan{
+    width: 60px;
+    height: 360px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: center;
+}
+
+.fifty{
+    height: 60px;
+    width: 60px;
+
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.word{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    
+    cursor: pointer;
+}
+/* wordは全てに適用 */
+
+.color{
+    font-weight: bold;
+    color: black;
+}
+#credits{
+    width:100%;
+    height:100px;
+    background: black;
+    text-align: center;
+    color:white;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+    padding:25px;
+}
+.flexbox{
+    display: flex;
+    justify-content: space-around;
+}
+.imgbox{
+    width:40px;
+    align-items: center;
+}
+.imgbox img{
+    width:40px;
+}
+.flexbox .textbox{
+    margin-left: 15px;
+}
+.textbox p{
+    line-height: 25px;
+}
+
+
+/* 横幅が700px未満の時に発動するCSS*/
+@media screen and (max-width:370px){
+    .frame{
+        display:none;
+    }
+}
+
+@media screen and (max-width:688px){
+    .headA{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .headB{
+        display: none;
+    }
+    .headB ul li{
+        width: 80%;
+        margin: 0 10% 0 10%;
+    }
+    .headC{
+        margin-right: 10px;
+        padding: 0;
+        border: none;
+        outline: none;
+        background: none;
+        font-size: 28px;
+        cursor: pointer;
+    }
+
+    .headC:hover{
+        color: rgb(113, 143, 95);
+    }
+
+    #mainsys{
+        margin: 5px;
+    }
+
+
+    #mainsys #search #sevenwords .banmen{
+        width: 40px;
+        height: 40px;
+    }
+
+    #subsys{
+        height: 100px;
+    }
+
+    #UI_buttons{
+        padding: 5px 0 5px 0;
+    }
+
+    #resetbutton, #searchbutton{
+        width: 120px;
+    }
+
+    #priority_words_wrap{
+        width: 120px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+    #subsys #priority_words_wrap .empty{
+        width:40px;
+        height: 40px;
+    }
+
+    #mainsys #nihongolist{
+        width: 100%;
+        height: 100%;
+        background-image: unset;
+        overflow-x:scroll;
+        scrollbar-width: 1000px;
+        -webkit-overflow-scrolling: touch;
+        
+    }
+    /*#mainsys #nihongolist .dan{
+        width:100%;
+        display: flex;
+        flex-direction: row;
+    }*/
+
+    #mainsys #nihongolist::-webkit-scrollbar{
+        width:20px;
+        height:10px;
+    }
+    #mainsys #nihongolist::-webkit-scrollbar-track-piece:horizontal{
+        background: rgba(60,60,60,0.7);
+        border-radius: 10px;
+    }
+    #mainsys #nihongolist::-webkit-scrollbar-thumb:horizontal{
+        background: url('img/scroll_Thumb.svg') no-repeat;
+        background-size: 100%;
+        background-position:center;
+        width:5px;
+        display: block;
+    }
+
+    .word{
+        width: 40px;
+        height: 40px;
+       
+    }
+}
+
+@media(min-width: 689px){
+    header{
+        display: flex;
+        justify-content: space-between;
+        align-content: center;
+    }
+
+    header .con{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .headB{
+        display: block !important;
+    }
+
+    .headB ul{
+        display: flex;
+        height: 100%;
+
+        text-align: center;
+    }
+
+    .head ul li{
+        height: 100%;
+    }
+
+    .headC{
+        display: none;
+    }
+}

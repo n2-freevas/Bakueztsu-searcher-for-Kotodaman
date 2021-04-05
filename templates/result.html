@@ -1,0 +1,16 @@
+<div class='popup-inner'>
+    <div class='close-btn' id='js-close-btn'><i class='fas fa-times'></i></div>
+    <div id='result_list'>
+        {% for x in posts %}
+            <div class = "word_wrap">
+                <div class='result_word'>
+                    <p>{{x["word"]}}</p>
+                </div>
+                <div class='fill'>
+                    <p>{{x["fill_char"]}}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+<div class='black-background' id = 'js-black-bg'></div>
